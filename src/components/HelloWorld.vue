@@ -2,19 +2,12 @@
 
 <div>
 
-<h1> Events  </h1>
-<button v-on:click.once="add(1)">Add a year</button>
-<!-- <button v-on:click="age++">Add a year</button>  -->
-<!-- ako je funkcija kraca moze odmah i ovde da se ispise -->
-<button v-on:click="substract(1)">Substract a year</button>
-<button v-on:dblclick="add(10)">Add 10 years</button>
-<button v-on:dblclick="substract(10)">Substract 10 years</button>
+<h1>Keyboard events </h1>
+<label>Name:</label>
+<input type="text" v-on:keyup.enter="logName">
+<label>Age</label>
+<input type="text" v-on:keyup.enter.alt="logAge">
 
-
- <p>My age is : {{age}} </p>
-
-<div id="canvas" v-on:mousemove="updateXY"> {{x}} , {{y}} </div>
-<a v-on:click.prevent="click" href="https://academy.vivifyideas.com/">video 6</a>
 
 
 </div>
@@ -43,6 +36,12 @@ export default {
       },
       click(){
         alert('You clicked me');
+      },
+      logName(){
+        console.log('you enter your name');
+      },
+      logAge(){
+        console.log('you enter you age');
       }     
   }
 
