@@ -3,7 +3,7 @@
 <div>
 
 <h1> Events  </h1>
-<button v-on:click="add(1)">Add a year</button>
+<button v-on:click.once="add(1)">Add a year</button>
 <!-- <button v-on:click="age++">Add a year</button>  -->
 <!-- ako je funkcija kraca moze odmah i ovde da se ispise -->
 <button v-on:click="substract(1)">Substract a year</button>
@@ -14,6 +14,8 @@
  <p>My age is : {{age}} </p>
 
 <div id="canvas" v-on:mousemove="updateXY"> {{x}} , {{y}} </div>
+<a v-on:click.prevent="click" href="https://academy.vivifyideas.com/">video 6</a>
+
 
 </div>
 </template>
@@ -38,6 +40,9 @@ export default {
       updateXY(event){
         this.x = event.offsetX;
         this.y = event.offsetY;
+      },
+      click(){
+        alert('You clicked me');
       }     
   }
 
