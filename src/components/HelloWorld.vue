@@ -2,14 +2,18 @@
 
 <div>
 
-<h1>Data binding</h1>
-  <!-- <h1> {{greet("afternoon")}}  </h1> -->
- <a v-bind:href="website"> link za sa sajt</a>
- <!-- skracenica dole od ovog gore -->
- <!--  <a :href="website"> link za sa sajt</a> -->
-<input type="text" v-bind:value="job">
+<h1> Events  </h1>
+<button v-on:click="add(1)">Add a year</button>
+<!-- <button v-on:click="age++">Add a year</button>  -->
+<!-- ako je funkcija kraca moze odmah i ovde da se ispise -->
+<button v-on:click="substract(1)">Substract a year</button>
+<button v-on:dblclick="add(10)">Add 10 years</button>
+<button v-on:dblclick="substract(10)">Substract 10 years</button>
 
-  <p v-html="websiteTag"></p>
+
+ <p>My age is : {{age}} </p>
+
+<div id="canvas" v-on:mousemove="updateXY"> {{x}} , {{y}} </div>
 
 </div>
 </template>
@@ -18,18 +22,23 @@
 export default {
   data(){
     return{
-      name:"Shaun",
-      job:"arbeit",
-      website: "https://www.google.rs/",
-      websiteTag: '<a href="https://www.google.rs/"> aaaa </a> '
+      age:25,
+      x:0,
+      y:0
     };
   },
   
   methods: {
-    greet(time){
-      this.name
-     return "Good " + time + ' ' + this.name;
-    }
+      add(inc){
+        this.age +=inc;
+      },
+      substract(inc){
+        this.age -=inc;
+      },
+      updateXY(event){
+        this.x = event.offsetX;
+        this.y = event.offsetY;
+      }     
   }
 
 }
@@ -38,5 +47,12 @@ export default {
     
 
 <style>
+
+#canvas {
+  width: 600px;
+  padding: 200px 20px;
+  text-align: center;
+  border: 1px solid #333;
+}
 
 </style>
