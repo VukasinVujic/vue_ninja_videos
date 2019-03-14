@@ -2,13 +2,24 @@
 
 <div>
 
-<h1>Keyboard events </h1>
-<label>Name:</label>
-<input type="text" v-model="name">
-<span> {{name}} </span>
-<label>Age</label>
-<input type="text" v-model="age" >
-<span> {{age}} </span>
+<h1>Computed Propertis</h1>
+<button v-on:click="a++">Add to a</button>
+<button v-on:click="b++">Add to b</button>
+
+<button v-on:click="c++">Add to c</button>
+
+<p> C = {{c}} </p>
+
+<p> A = {{a}} </p>
+<p> B = {{b}} </p>
+
+<!-- for methods  -->
+<!-- <p> age + A = {{addToA()}} </p> 
+<p> age + B = {{addToB()}} </p> -->
+
+<!-- for computed  -->
+<p> age + A = {{addToA}} </p> 
+<p> age + B = {{addToB}} </p>
 
 
 
@@ -20,34 +31,39 @@ export default {
   data(){
     return{
       name: 'VUkasin',
-      age:25,
-      x:0,
-      y:0
+      age:20,
+      a:0,
+      b:0,
+      c:0
     };
   },
   
   methods: {
-      add(inc){
-        this.age +=inc;
+      
+      // addToA(){
+      //   console.log('aaaaaaaaaaaa');
+      //   return this.a + this.age;
+      // },
+      // addToB(){
+      //   console.log('BBBBBBBB');
+      //   return this.b + this.age;
+      // }
+  },
+      computed: {
+        addToA(){
+        console.log('aaaaaaaaaaaa');
+        return this.a + this.age;
       },
-      substract(inc){
-        this.age -=inc;
-      },
-      updateXY(event){
-        this.x = event.offsetX;
-        this.y = event.offsetY;
-      },
-      click(){
-        alert('You clicked me');
-      },
-      logName(){
+      addToB(){
+        console.log('BBBBBBBB');
+        return this.b + this.age;
+      }
         
-      },
-      logAge(){
-      }     
-  }
+      }
+           
+  
 
-}
+};
 </script>
 
     
