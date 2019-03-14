@@ -4,9 +4,11 @@
 
 <h1>Keyboard events </h1>
 <label>Name:</label>
-<input type="text" v-on:keyup.enter="logName">
+<input type="text" v-model="name">
+<span> {{name}} </span>
 <label>Age</label>
-<input type="text" v-on:keyup.enter.alt="logAge">
+<input type="text" v-model="age" >
+<span> {{age}} </span>
 
 
 
@@ -17,6 +19,7 @@
 export default {
   data(){
     return{
+      name: 'VUkasin',
       age:25,
       x:0,
       y:0
@@ -38,10 +41,9 @@ export default {
         alert('You clicked me');
       },
       logName(){
-        console.log('you enter your name');
+        
       },
       logAge(){
-        console.log('you enter you age');
       }     
   }
 
