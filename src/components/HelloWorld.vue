@@ -1,25 +1,19 @@
 <template>
 
 <div>
+  <h1>Dynamic CSS</h1>
+  <h2>Example 1</h2>
+  <!-- <div v-on:click="available = !available" v-bind:class="{available: available}">
+  <span>trrrruuuuu</span>
+  </div> -->
+  <h3>Example 2</h3>
+  <button v-on:click="nearby =!nearby">Toggle nearby</button>
+  <button v-on:click="available =!available">Toggle available</button>
 
-<h1>Computed Propertis</h1>
-<button v-on:click="a++">Add to a</button>
-<button v-on:click="b++">Add to b</button>
+<div v-bind:class="compClasses">
+<span>aaaa</span>
 
-<button v-on:click="c++">Add to c</button>
-
-<p> C = {{c}} </p>
-
-<p> A = {{a}} </p>
-<p> B = {{b}} </p>
-
-<!-- for methods  -->
-<!-- <p> age + A = {{addToA()}} </p> 
-<p> age + B = {{addToB()}} </p> -->
-
-<!-- for computed  -->
-<p> age + A = {{addToA}} </p> 
-<p> age + B = {{addToB}} </p>
+</div>
 
 
 
@@ -30,36 +24,24 @@
 export default {
   data(){
     return{
-      name: 'VUkasin',
-      age:20,
-      a:0,
-      b:0,
-      c:0
+      available: false,
+      nearby: false
+     
     };
   },
   
   methods: {
       
-      // addToA(){
-      //   console.log('aaaaaaaaaaaa');
-      //   return this.a + this.age;
-      // },
-      // addToB(){
-      //   console.log('BBBBBBBB');
-      //   return this.b + this.age;
-      // }
+     
   },
-      computed: {
-        addToA(){
-        console.log('aaaaaaaaaaaa');
-        return this.a + this.age;
-      },
-      addToB(){
-        console.log('BBBBBBBB');
-        return this.b + this.age;
+   computed: {
+    compClasses(){
+      return {
+        available: this.available,
+        nearby: this.nearby
       }
-        
-      }
+    }    
+  }
            
   
 
@@ -70,11 +52,21 @@ export default {
 
 <style>
 
-#canvas {
-  width: 600px;
-  padding: 200px 20px;
-  text-align: center;
-  border: 1px solid #333;
+span{
+    background: red;
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.available span{
+    background: green;
+}
+
+.nearby span:after{
+    content: "nearby";
+    margin-left: 10px;
 }
 
 </style>
