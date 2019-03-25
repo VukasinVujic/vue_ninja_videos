@@ -1,23 +1,18 @@
 <template>
 <div>
-  <h1> {{title}} </h1>
-  <ninjas>  </ninjas>
-
+    <ul>
+        <li v-for="ninja in ninjas" :key="ninja"> {{ninja}} </li>  
+    </ul>
    </div>
 </template>
 
 <script>
-import Ninjas from './components/Ninjas.vue'
 
 export default {
-  components: {
-    Ninjas
-  },
-
   name: 'app',
   data(){
     return {
-      title: 'Ninja app'
+      ninjas: ['Youshi', 'Mario', 'Ryu']
     }
   },
   methods : {
